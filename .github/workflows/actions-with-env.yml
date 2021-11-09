@@ -1,0 +1,19 @@
+name: 'Env variables'
+on: push
+
+env:
+  WF_ENV: 'Available to all jobs'
+
+jobs:
+  log-env:
+    runs-on: ubuntu-latest
+    env:
+      SCOPED_JOB_ENV: 'This env is only available on this job steps'
+    steps:
+      - name: "Log env variable"
+        env:
+          SCOPED_STEP_ENV: "This env is only available in this job step"
+        run: |
+          echo "WF_ENV: ${WF_ENV}"
+          echo "SCOPED_JOB_ENV: ${SCOPED_ENV}"
+          echo "SCOPED_STEP_ENV": ${SCOPED_STEP_ENV}

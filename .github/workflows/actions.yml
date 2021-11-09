@@ -1,7 +1,16 @@
 name: 'Actions Workflow'
 on: 
   pull_request: 
-    types: [opened, closed, reopened, assigned]
+    types: [opened, closed, reopened, assigned] #Will trigger for this pull request events
+  push:
+    branches:
+      - main
+      - 'feat/*' #Will trigger for every branch which starts with feat/ like feat/A feat/B but don't match strings like feat/a/b
+      - 'feat/**' #Will trigger for every string that start with feat/* included feat/a/b and so on
+      - '!feat/featC' #this exclamation point will exclude this branch from the match pattern above
+    paths:
+      - "**.js" #It will only runs when some .js file get changed
+      - "!file.js" #will exclude this expecific file from the **.js file match
   # schedule:
   #   - cron: "0/5 * * * *"
   #   - cron: "0/6 * * * *"
@@ -12,7 +21,7 @@ jobs:
     steps:
       - name: 'Js action'
         id: greet
-        uses: actions/hello-world-javascript-action@master
+        uses: actions/hello-world-javascript-action@master #External github action
         with:
           who-to-greet: "Hiran Junior"
       - name: 'Loggin greeting time'
