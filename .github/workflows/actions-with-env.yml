@@ -15,5 +15,5 @@ jobs:
           SCOPED_STEP_ENV: "This env is only available in this job step"
         run: |
           echo "WF_ENV: ${WF_ENV}"
-          echo "SCOPED_JOB_ENV: ${SCOPED_ENV}"
+          echo "SCOPED_JOB_ENV: ${SCOPED_JOB_ENV}"
           echo "SCOPED_STEP_ENV": ${SCOPED_STEP_ENV}
