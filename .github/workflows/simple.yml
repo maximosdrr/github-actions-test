@@ -10,3 +10,7 @@ jobs:
         run: |
           node -v
           npm -v
+      - name: Python command
+        run: |
+          print("Hello World I'm using python inside github actions")
+        shell: python
