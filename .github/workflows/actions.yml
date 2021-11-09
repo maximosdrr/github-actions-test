@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: 'Js action'
         id: greet
-        uses: https://github.com/actions/hello-world-javascript-action@master
+        uses: actions/hello-world-javascript-action@master
         with:
           who-to-greet: "Hiran Junior"
       - name: 'Loggin greeting time'
