@@ -14,3 +14,11 @@ jobs:
         run: |
           print("Hello World I'm using python inside github actions")
         shell: python
+  run-windows-commands:
+    runs-on: windows-latest
+    steps:
+      - name: Directory powershell
+        run: Get-Location
+      - name: Directory bash
+        run: pwd
+        shell: bash
