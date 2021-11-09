@@ -23,4 +23,4 @@ jobs:
         run: pwd
         shell: bash
     needs:
-      - run-shell-command
+      - "run-shell-command"
