@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: 'Log node version that are used in docker'
         run: |
-          echo node -v
+          node -v
