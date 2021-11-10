@@ -1,0 +1,12 @@
+name: 'Docker'
+on: [push]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    container: #specify a docker container image to my job run inside
+      image: node:13.5.0-alpine3.10
+    steps:
+      - name: 'Log node version that are used in docker'
+        run: |
+          echo node -v
