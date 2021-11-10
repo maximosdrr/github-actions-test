@@ -3,12 +3,17 @@ on: push
 
 jobs:
   node-version:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true #If it is set as true if one job failure it won't continue executing the other jobs
+      max-parallel: 0 #specify the maximum number of jobs that will run in parallel in this job
+      matrix: 
+        node_version: [6,10,12] #Will make my job runs once for each of these version numbers
+        os: [ubuntu-latest, windows-latest]
     steps:
-      - name: 'First'
-        run: node -v
-      - uses: actions/setup-node@v1
+      - name: 'Node Version with strategy and matrix'
+        uses: actions/setup-node@v1
         with:
-          node-version: 6
-      - name: 'Second'
+          node-version: ${{ matrix.node_version }} #here we have to reference our matrix object acessing it by matrix context
+      - name: 'Log node version'
         run: node -v
