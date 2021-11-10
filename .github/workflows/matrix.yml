@@ -12,11 +12,11 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         include:
           - os: macos-latest
-            node-version: 10
+            node_version: 10
             is_macos: "true"
         exclude: # Won't execute the job when the for loop get os as macos-latest and node-version as 6
           - os: macos-latest
-            node-version: 6
+            node_version: 6
     env:
       IS_MACOS: ${{matrix.is_macos}}
     steps:
